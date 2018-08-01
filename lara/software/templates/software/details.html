@@ -1,0 +1,14 @@
+{% extends 'software/layout.html' %}
+
+{% block content %}
+<h3 class="center-align red lighten-3">{{software.team}}</h3>
+<div class="card">
+    <div class="card-content">
+        {{software.body}}
+    </div>
+    <div class="card-action">
+        {{software.date_posted}}
+    </div>
+</div>
+<a href="/software" class="btn">Go Back</a>
+{% endblock %}

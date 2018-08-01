@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+body {
+    background-color: white;
+    color: rgb(50, 48, 49);
+    font-family: 'Quicksand', sans-serif;
+}
+
+.navbar {
+    background: rgb(50, 48, 49);
+    padding: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.maincontent {
+    margin-top: 190px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    color: rgb(58, 183, 149);
+}
+
+p {
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: justify;
+}
+
+form {
+    margin: 40px;
+    text-align: center;
+}
+
+input[type=submit] {
+    background-color: white; 
+    border: solid 1px rgb(50, 48, 49);
+    cursor: pointer;
+    margin: 0px 10px;
+    text-decoration: none;
+}
+
+th {
+    padding: 20px;
+    vertical-align: middle;
+}
+
+td {
+    padding: 20px;
+    vertical-align: top;
+}
+
+.title, .date {
+    white-space: nowrap;
+}
+
+.description {
+    text-align: justify;
+}
