@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+body {
+    background-color: rgb(50, 48, 49);
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.navbar {
+    background: linear-gradient(to bottom, rgba(50, 48, 49, 1), rgba(50, 48, 49, 0));
+    padding: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.maincontent {
+    margin-top: 190px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    color: rgb(58, 183, 149);
+}
+
+p {
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: justify;
+}

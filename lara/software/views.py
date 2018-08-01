@@ -1,11 +1,32 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 from .models import Software
 
 # Create your views here.
-def index(request):
-    # return HttpResponse("HELLO FROM SOFTWARE")
+
+
+def software(request):
+    software = Software.objects.all()[:10]
+
+    context = {
+        'title': 'Software',
+        'software': software
+    }
+
+    return render(request, 'software/software.html', context)
+
+
+def addSoftware(request):
+    return render(request, 'software/addSoftware.html')
+
+
+def submitSoftware(request):
+    title = request.POST["title"]
+    description = request.POST["description"]
+    date_created = request.POST["date_created"]
+
+    software = Software(team=title, body=description, date_posted=date_created)
+    software.save()
 
     software = Software.objects.all()[:10]
 
@@ -14,7 +35,8 @@ def index(request):
         'software': software
     }
 
-    return render(request, 'software/index.html', context)
+    return render(request, 'software/software.html', context)
+
 
 def details(request, id):
     software = Software.objects.get(id=id)
