@@ -1,14 +1,47 @@
 {% extends 'software/layout.html' %}
 
 {% block content %}
-<h3 class="center-align red lighten-3">{{software.team}}</h3>
-<div class="card">
-    <div class="card-content">
-        {{software.body}}
+<div class="softwareinfo">
+    <h1>{{software.team}}</h1>
+    <div class="row">
+        <div class="col-3">
+            <p>Description</p>
+        </div>
+        <div class="col-9">
+            <p>{{software.body|linebreaksbr}}</p>
+        </div>
     </div>
-    <div class="card-action">
-        {{software.date_posted}}
+    <div class="row">
+        <div class="col-3">
+            <p>Date Created</p>
+        </div>
+        <div class="col-9">
+            <p>{{software.date_posted}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>Last Modified</p>
+        </div>
+        <div class="col-9">
+            <p>Null</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>Links</p>
+        </div>
+        <div class="col-9">
+            <p>Null</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <p>Files</p>
+        </div>
+        <div class="col-9">
+            <p>Null</p>
+        </div>
     </div>
 </div>
-<a href="/software" class="btn">Go Back</a>
 {% endblock %}

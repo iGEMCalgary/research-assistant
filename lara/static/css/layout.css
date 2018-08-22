@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+body {
+    background-color: rgb(236, 236, 236);
+    color: rgb(50, 48, 49);
+    font-family: 'Quicksand', sans-serif;
+}
+
+.navbar {
+    background: rgb(50, 48, 49);
+    padding: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.maincontent {
+    margin-top: 190px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h5 {
+    /* color: rgb(168, 224, 178); */
+    padding: 50px;
+    text-align: left;
+}
+
+p {
+    padding: 50px;
+    text-align: justify;
+}
+
+input {
+    margin: 50px;
+}
+
+textarea {
+    margin: 50px;
+}
+
+.softwareinfo {
+    background-color: white;
+    -moz-box-shadow: 0px 3px 3px #ccc;
+    -webkit-box-shadow: 0px 3px 3px #ccc;
+    box-shadow: 0px 3px 3px #ccc;
+    padding: 50px;
+}
+
+.addsoftwareinfo {
+    background-color: white;
+    -moz-box-shadow: 0px 3px 3px #ccc;
+    -webkit-box-shadow: 0px 3px 3px #ccc;
+    box-shadow: 0px 3px 3px #ccc;
+    padding: 50px;
+}
+
+.square {
+    background-color: white;
+    background-color: white;
+    -moz-box-shadow: 0px 3px 3px #ccc;
+    -webkit-box-shadow: 0px 3px 3px #ccc;
+    box-shadow: 0px 3px 3px #ccc;
+    color: rgb(50, 48, 49);
+    height: 20vw;
+    padding: 50px;
+    text-align: center;
+}
+
+.preview {
+    padding: 10px;
+    text-align: left;
+}
