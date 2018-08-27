@@ -1,8 +1,8 @@
-{% extends 'software/layout.html' %}
+{% extends 'notes/layout.html' %}
 
 {% block content %}
 <h1 id="pagetitle">NOTES</h1>
-<h2 id="pageinfo">{{software.title}}</h2>
+<h2 id="pageinfo">{{notebook.title}}</h2>
 <div class="custom-container">
     <div id="modifybox">
         <div class="row">
@@ -10,18 +10,22 @@
                 <h3 class="software-title">Title</h3>
             </div>
             <div class="col-10">
-                <p>{{software.title}}</p>
+                <p>{{notebook.title}}</p>
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-2">
-                <h3 class="software-title">Description</h3>
+                <h3 class="software-title">Notes</h3>
             </div>
             <div class="col-10">
-                <p>
-                    {{software.body|linebreaksbr}}
-                </p>
+                <ul>
+                    {% for n in notes %}
+                    <li>
+                        {{n.body}}
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
         <br>
@@ -30,7 +34,7 @@
                 <h3 class="software-title">Date Uploaded</h3>
             </div>
             <div class="col-10">
-                <p>{{software.datePosted}}</p>
+                <p>{{notebook.datePosted}}</p>
             </div>
         </div>
     </div>

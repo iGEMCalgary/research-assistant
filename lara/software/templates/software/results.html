@@ -1,0 +1,20 @@
+{% extends 'software/layout.html' %}
+
+{% block content %}
+<h1 id="pagetitle">SOFTWARE</h1>
+<h2 id="pageinfo">Results ({{number}})</h2>
+<div class="custom-container">
+    <div class="row">
+        {% for s in software %}
+        <div class="col-md-4">
+            <a style="text-decoration: none" href="/software/details/{{s.id}}">
+                <div class="col-12 square">
+                    <p class="preview"><span class="preview-title">{{s.title}}</span><br><br>(Description)</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+</div>
+{% endblock %}

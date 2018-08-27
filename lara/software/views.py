@@ -5,15 +5,26 @@ from .models import Software
 # Create your views here.
 
 
-def software(request):
-    software = Software.objects.all()[:10]
+def results(request):
+    software = Software.objects.all()
+    number = len(software)
 
     context = {
-        'title': 'Software',
+        'software': software,
+        'number': number
+    }
+
+    return render(request, 'software/results.html', context)
+
+
+def details(request, id):
+    software = Software.objects.get(id=id)
+
+    context = {
         'software': software
     }
 
-    return render(request, 'software/software.html', context)
+    return render(request, 'software/details.html', context)
 
 
 def addSoftware(request):
@@ -36,13 +47,3 @@ def submitSoftware(request):
     }
 
     return render(request, 'software/software.html', context)
-
-
-def details(request, id):
-    software = Software.objects.get(id=id)
-
-    context = {
-        'software': software
-    }
-
-    return render(request, 'software/details.html', context)
