@@ -26,9 +26,22 @@ def details(request, id):
 
     return render(request, 'software/details.html', context)
 
+def add(request):
+    context = {
+        'pageinfo': "Add Software",
+    }
 
-def addSoftware(request):
-    return render(request, 'software/addSoftware.html')
+    return render(request, 'software/edit.html', context)
+
+def edit(request, id):
+    software = Software.objects.get(id=id)
+
+    context = {
+        'pageinfo': "Edit Software",
+        'software': software
+    }
+
+    return render(request, 'software/edit.html', context)
 
 
 def submitSoftware(request):
@@ -36,14 +49,15 @@ def submitSoftware(request):
     description = request.POST["description"]
     date_created = request.POST["date_created"]
 
-    software = Software(team=title, body=description, date_posted=date_created)
+    software = Software(title=title, body=description, datePosted=date_created)
     software.save()
 
-    software = Software.objects.all()[:10]
+    software = Software.objects.all()
+    number = len(software)
 
     context = {
-        'title': 'Software',
-        'software': software
+        'software': software,
+        'number': number
     }
 
-    return render(request, 'software/software.html', context)
+    return render(request, 'software/results.html', context)
