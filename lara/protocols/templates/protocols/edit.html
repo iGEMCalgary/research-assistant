@@ -1,18 +1,18 @@
-{% extends 'notes/layout.html' %}
+{% extends 'protocols/layout.html' %}
 
 {% block content %}
-<h1 id="pagetitle">NOTES</h1>
+<h1 id="pagetitle">PROTOCOLS</h1>
 <h2 id="pageinfo">{{pageinfo}}</h2>
 <div class="custom-container">
     <div id="modifybox">
-        <form method="post" action="submit_notes/">
+        <form method="post" action="submit_protocol/">
             {% csrf_token %}
             <div class="row">
                 <div class="col-2">
                     <h3 class="software-title">Title</h3>
                 </div>
                 <div style="text-align: left" class="col-10">
-                    <input name="title" type="text" value="{{notebook.title}}">
+                    <input name="title" type="text" value="{{protocol.title}}">
                 </div>
             </div>
             <br>
@@ -21,19 +21,19 @@
                 <div class="row">
                     <div class="col-2"></div>
                     <div class="col-2">
-                        <a id="addnote" href="#" class="btn btn-outline-light">Add Note</a>
+                        <a id="addstep" href="#" class="btn btn-outline-light">Add Step</a>
                     </div>
                     <div class="col-2">
-                        <a id="removenote" href="#" class="btn btn-outline-light">Remove Note</a>
+                        <a id="removestep" href="#" class="btn btn-outline-light">Remove Step</a>
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-2">
-                        <h3 class="software-title">Notes</h3>
+                        <h3 class="software-title">Steps</h3>
                     </div>
                     <div style="text-align: left" class="col-10">
-                        <textarea class="dynamicdivline" name="notes" style="resize: none" rows="1" cols="50">{{note}}</textarea>
+                        <textarea class="dynamicdivline" name="steps" style="resize: none" rows="1" cols="50">{{step}}</textarea>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                     <h3 class="software-title">Date Uploaded</h3>
                 </div>
                 <div style="text-align: left" class="col-10">
-                    <input name="date_created" type="text" value="{{notebook.datePosted}}">
+                    <input name="date_created" type="text" value="{{protocol.datePosted}}">
                 </div>
             </div>
             <br>
@@ -56,12 +56,12 @@
     $(function () {
         var div = $('#dynamicdiv');
         var i = document.getElementsByClassName("dynamicdivline").length;
-        $('#addnote').click(function () {
-            $('<div class="row"><div class="col-2"></div><div style="text-align: left" class="col-10"><textarea class="dynamicdivline" name="notes" style="resize: none" rows="1" cols="50">{{note}}</textarea></div></div>').appendTo(div);
+        $('#addstep').click(function () {
+            $('<div class="row"><div class="col-2"></div><div style="text-align: left" class="col-10"><textarea class="dynamicdivline" name="steps" style="resize: none" rows="1" cols="50">{{step}}</textarea></div></div>').appendTo(div);
             i++;
             return false;
         });
-        $('#removenote').click(function() {
+        $('#removestep').click(function() {
             if (i > 1) {
                 $('.dynamicdivline').eq(i - 1).remove();
                 i--;

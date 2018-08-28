@@ -4,6 +4,10 @@
 <h1 id="pagetitle">SOFTWARE</h1>
 <h2 id="pageinfo">Results ({{number}})</h2>
 <div class="custom-container">
+    {% if request.user.is_superuser %}
+    <a style="display: block" href="/software/scrape" class="btn btn-outline-light">Scrape Web</a>
+    <br>
+    {% endif %}
     <a style="display: block" href="/software/add_software" class="btn btn-outline-light">Add Software</a>
     <br>
     {% for s in software %}
@@ -15,7 +19,7 @@
         <div class="col-md-4">
             <a style="text-decoration: none" href="/software/details/{{s.id}}">
                 <div class="col-12 square">
-                    <p class="preview"><span class="preview-title">{{s.title}}</span><br><br>(Description)</p>
+                    <p class="preview"><span class="preview-title">{{s.title}}</span><br><br>{{s.body}}<br><br>{{s.datePosted}}</p>
                 </div>
             </a>
         </div>

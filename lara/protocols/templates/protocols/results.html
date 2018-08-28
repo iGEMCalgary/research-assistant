@@ -1,21 +1,21 @@
-{% extends 'notes/layout.html' %}
+{% extends 'protocols/layout.html' %}
 
 {% block content %}
-<h1 id="pagetitle">NOTES</h1>
+<h1 id="pagetitle">PROTOCOLS</h1>
 <h2 id="pageinfo">Results ({{number}})</h2>
 <div class="custom-container">
-    <a style="display: block" href="/notes/add_notes" class="btn btn-outline-light">Add Notes</a>
+    <a style="display: block" href="/protocols/add_protocol" class="btn btn-outline-light">Add Protocol</a>
     <br>
-    {% for nb in notebooks %}
+    {% for p in protocols %}
     
         {% if forloop.first %}
         <div class="row">
         {% endif %}
 
         <div class="col-md-4">
-            <a style="text-decoration: none" href="/notes/details/{{nb.id}}">
+            <a style="text-decoration: none" href="/protocols/details/{{p.id}}">
                 <div class="col-12 square">
-                    <p class="preview"><span class="preview-title">{{nb.title}}</span><br><br>[Description]<br><br>{{nb.datePosted}}</p>
+                    <p class="preview"><span class="preview-title">{{p.title}}</span><br><br>[Description]<br><br>{{p.datePosted}}</p>
                 </div>
             </a>
         </div>
