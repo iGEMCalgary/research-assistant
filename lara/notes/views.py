@@ -27,3 +27,31 @@ def details(request, id):
     }
 
     return render(request, 'notes/details.html', context)
+
+def add(request):
+    context = {
+        'pageinfo': "Add Notes",
+    }
+
+    return render(request, 'notes/edit.html', context)
+
+def submit(request):
+    title = request.POST["title"]
+    notes = request.POST["notes"]
+    date_created = request.POST["date_created"]
+
+    notebook = Notebook(title=title, datePosted=date_created)
+    notebook.save()
+
+    note = Note(body=notes, notebook=notebook)
+    note.save()
+
+    notebooks = Notebook.objects.all()
+    number = len(notebooks)
+
+    context = {
+        'notebooks': notebooks,
+        'number': number
+    }
+
+    return render(request, 'notes/results.html', context)

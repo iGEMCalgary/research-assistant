@@ -4,8 +4,14 @@
 <h1 id="pagetitle">NOTES</h1>
 <h2 id="pageinfo">Results ({{number}})</h2>
 <div class="custom-container">
-    <div class="row">
-        {% for nb in notebooks %}
+    <a style="display: block" href="/notes/add_notes" class="btn btn-outline-light">Add Notes</a>
+    <br>
+    {% for nb in notebooks %}
+    
+        {% if forloop.first %}
+        <div class="row">
+        {% endif %}
+
         <div class="col-md-4">
             <a style="text-decoration: none" href="/notes/details/{{nb.id}}">
                 <div class="col-12 square">
@@ -13,8 +19,16 @@
                 </div>
             </a>
         </div>
-        {% endfor %}
-    </div>
+        
+        {% if forloop.counter|divisibleby:3 %}
+        </div><br><div class="row">
+        {% endif %}
+
+        {% if forloop.last %}
+        </div>
+        {% endif %}
+
+    {% endfor %}
     <br>
 </div>
 {% endblock %}

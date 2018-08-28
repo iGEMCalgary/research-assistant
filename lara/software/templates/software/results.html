@@ -6,8 +6,12 @@
 <div class="custom-container">
     <a style="display: block" href="/software/add_software" class="btn btn-outline-light">Add Software</a>
     <br>
-    <div class="row">
-        {% for s in software %}
+    {% for s in software %}
+    
+        {% if forloop.first %}
+        <div class="row">
+        {% endif %}
+
         <div class="col-md-4">
             <a style="text-decoration: none" href="/software/details/{{s.id}}">
                 <div class="col-12 square">
@@ -15,8 +19,16 @@
                 </div>
             </a>
         </div>
-        {% endfor %}
-    </div>
+        
+        {% if forloop.counter|divisibleby:3 %}
+        </div><br><div class="row">
+        {% endif %}
+
+        {% if forloop.last %}
+        </div>
+        {% endif %}
+
+    {% endfor %}
     <br>
 </div>
 {% endblock %}

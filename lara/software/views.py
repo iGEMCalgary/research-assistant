@@ -26,12 +26,14 @@ def details(request, id):
 
     return render(request, 'software/details.html', context)
 
+
 def add(request):
     context = {
         'pageinfo': "Add Software",
     }
 
     return render(request, 'software/edit.html', context)
+
 
 def edit(request, id):
     software = Software.objects.get(id=id)
@@ -44,7 +46,7 @@ def edit(request, id):
     return render(request, 'software/edit.html', context)
 
 
-def submitSoftware(request):
+def submit(request):
     title = request.POST["title"]
     description = request.POST["description"]
     date_created = request.POST["date_created"]
