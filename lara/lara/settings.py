@@ -30,16 +30,18 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'home',
-    'protocols',
-    'software',
-    'notes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'home',
+    'protocols',
+    'software',
+    'notes',
+    'ckeditor',
+    'star_ratings',
 ]
 
 MIDDLEWARE = [

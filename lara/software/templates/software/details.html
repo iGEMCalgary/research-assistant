@@ -1,4 +1,5 @@
 {% extends 'software/layout.html' %}
+{% load ratings %}
 
 {% block content %}
 <h1 id="pagetitle">NOTES</h1>
@@ -19,18 +20,63 @@
                 <h3 class="software-title">Description</h3>
             </div>
             <div class="col-10">
-                <p>
-                    {{software.body|linebreaksbr}}
-                </p>
+                {{software.description|safe}}
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-2">
-                <h3 class="software-title">Date Uploaded</h3>
+                <h3 class="software-title">Links</h3>
             </div>
             <div class="col-10">
-                <p>{{software.datePosted}}</p>
+                {% for l in links %}
+                    {% if forloop.last %}
+                    <a class="details-link" target="_blank" href="{{l.url}}">{{l.title}}</a>
+                    {% else %}
+                    <a class="details-link" target="_blank" href="{{l.url}}">{{l.title}}</a>
+                    <br>
+                    <br>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2">
+                <h3 class="software-title">iGEM Team</h3>
+            </div>
+            <div class="col-4">
+                <p>{{software.iGemTeamName}}</p>
+            </div>
+            <div class="col-2">
+                <h3 class="software-title">iGEM Year</h3>
+            </div>
+            <div class="col-4">
+                <p>{{software.iGemYear}}</p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2">
+                <h3 class="software-title">Date Submitted</h3>
+            </div>
+            <div class="col-4">
+                <p>{{software.dateSubmitted}}</p>
+            </div>
+            <div class="col-2">
+                <h3 class="software-title">Date Modified</h3>
+            </div>
+            <div class="col-4">
+                <p>{{software.dateModified}}</p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2">
+                <h3 class="software-title">Rating</h3>
+            </div>
+            <div class="col-10">
+                {% ratings software %}
             </div>
         </div>
         <br>

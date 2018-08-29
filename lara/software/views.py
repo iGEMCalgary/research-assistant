@@ -19,9 +19,11 @@ def results(request):
 
 def details(request, id):
     software = Software.objects.get(id=id)
+    links = software.link_set.all()
 
     context = {
-        'software': software
+        'software': software,
+        'links': links
     }
 
     return render(request, 'software/details.html', context)

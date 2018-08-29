@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^protocols/', include('protocols.urls')),
     url(r'^software/', include('software.urls')),
     url(r'^notes/', include('notes.urls')),
+    url(r'^ratings/', include('star_ratings.urls', namespace='ratings')),
 ]
