@@ -48,7 +48,7 @@ body {
     padding-right: 6.25rem;
 }
 
-.software-title {
+.details-title {
     color: #f7b733;
     font-size: 1.2em;
 }
@@ -79,6 +79,22 @@ body {
 
 .details-link:hover {
     color: #7ccfb8;
+}
+
+.line-input {
+    border: 0;
+    color: lightgrey;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid lightgrey;
+}
+
+.line-input:focus {
+    border: 0;
+    color: white;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid white;
 }
 
 .bottom-left {

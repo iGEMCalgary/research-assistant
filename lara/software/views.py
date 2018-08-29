@@ -28,6 +28,7 @@ def details(request, id):
 
     return render(request, 'software/details.html', context)
 
+
 def scrape(request):
     title = request.POST["title"]
     description = request.POST["description"]
@@ -45,6 +46,7 @@ def scrape(request):
     }
 
     return render(request, 'software/results.html')
+
 
 def add(request):
     context = {
@@ -68,9 +70,13 @@ def edit(request, id):
 def submit(request):
     title = request.POST["title"]
     description = request.POST["description"]
-    date_created = request.POST["date_created"]
+    iGemTeamName = request.POST["iGemTeamName"]
+    iGemYear = request.POST["iGemYear"]
+    dateSubmitted = request.POST["dateSubmitted"]
+    dateModified = request.POST["dateModified"]
 
-    software = Software(title=title, body=description, datePosted=date_created)
+    software = Software(title=title, description=description, iGemTeamName=iGemTeamName,
+                        iGemYear=iGemYear, dateSubmitted=dateSubmitted, dateModified=dateModified)
     software.save()
 
     software = Software.objects.all()

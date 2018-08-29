@@ -9,28 +9,64 @@
             {% csrf_token %}
             <div class="row">
                 <div class="col-2">
-                    <h3 class="software-title">Title</h3>
+                    <h3 class="details-title">Title</h3>
                 </div>
                 <div style="text-align: left" class="col-10">
-                    <input name="title" type="text" value="{{software.title}}">
+                    <input autocomplete="off" class="line-input" name="title" type="text" value="{{software.title}}">
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-2">
-                    <h3 class="software-title">Description</h3>
+                    <h3 class="details-title">Description</h3>
                 </div>
-                <div style="text-align: left" class="col-10">
+                <!-- <div style="text-align: left" class="col-10">
                     <textarea name="description" style="resize: none" rows="4" cols="50">{{software.body}}</textarea>
+                </div> -->
+                <div class="col-10">
+                    <textarea name="description">{{software.description}}</textarea>
+                    <script>
+                        CKEDITOR.replace('description');
+                    </script>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-2">
-                    <h3 class="software-title">Date Uploaded</h3>
+                    <h3 class="details-title">Links</h3>
                 </div>
                 <div style="text-align: left" class="col-10">
-                    <input name="date_created" type="text" value="{{software.datePosted}}">
+                    <input autocomplete="off" class="line-input" name="link" type="text" value="">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2">
+                    <h3 class="details-title">iGEM Team</h3>
+                </div>
+                <div style="text-align: left" class="col-4">
+                    <input autocomplete="off" class="line-input" name="iGemTeamName" type="text" value="{{software.iGemTeamName}}">
+                </div>
+                <div class="col-2">
+                    <h3 class="details-title">iGEM Year</h3>
+                </div>
+                <div style="text-align: left" class="col-4">
+                    <input autocomplete="off" class="line-input" name="iGemYear" type="text" value="{{software.iGemYear}}">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2">
+                    <h3 class="details-title">Date Submitted</h3>
+                </div>
+                <div style="text-align: left" class="col-4">
+                    <input autocomplete="off" class="line-input" name="dateSubmitted" type="text" value="{{software.dateSubmitted}}">
+                </div>
+                <div class="col-2">
+                    <h3 class="details-title">Date Modified</h3>
+                </div>
+                <div style="text-align: left" class="col-4">
+                    <input autocomplete="off" class="line-input" name="dateModified" type="text" value="{{software.dateModified}}">
                 </div>
             </div>
             <br>

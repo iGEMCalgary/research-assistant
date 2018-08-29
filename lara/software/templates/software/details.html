@@ -8,7 +8,7 @@
     <div id="modifybox">
         <div class="row">
             <div class="col-2">
-                <h3 class="software-title">Title</h3>
+                <h3 class="details-title">Title</h3>
             </div>
             <div class="col-10">
                 <p>{{software.title}}</p>
@@ -17,7 +17,7 @@
         <br>
         <div class="row">
             <div class="col-2">
-                <h3 class="software-title">Description</h3>
+                <h3 class="details-title">Description</h3>
             </div>
             <div class="col-10">
                 {{software.description|safe}}
@@ -26,7 +26,7 @@
         <br>
         <div class="row">
             <div class="col-2">
-                <h3 class="software-title">Links</h3>
+                <h3 class="details-title">Links</h3>
             </div>
             <div class="col-10">
                 {% for l in links %}
@@ -43,13 +43,13 @@
         <br>
         <div class="row">
             <div class="col-2">
-                <h3 class="software-title">iGEM Team</h3>
+                <h3 class="details-title">iGEM Team</h3>
             </div>
             <div class="col-4">
                 <p>{{software.iGemTeamName}}</p>
             </div>
             <div class="col-2">
-                <h3 class="software-title">iGEM Year</h3>
+                <h3 class="details-title">iGEM Year</h3>
             </div>
             <div class="col-4">
                 <p>{{software.iGemYear}}</p>
@@ -58,13 +58,13 @@
         <br>
         <div class="row">
             <div class="col-2">
-                <h3 class="software-title">Date Submitted</h3>
+                <h3 class="details-title">Date Submitted</h3>
             </div>
             <div class="col-4">
                 <p>{{software.dateSubmitted}}</p>
             </div>
             <div class="col-2">
-                <h3 class="software-title">Date Modified</h3>
+                <h3 class="details-title">Date Modified</h3>
             </div>
             <div class="col-4">
                 <p>{{software.dateModified}}</p>
@@ -73,7 +73,7 @@
         <br>
         <div class="row">
             <div class="col-2">
-                <h3 class="software-title">Rating</h3>
+                <h3 class="details-title">Rating</h3>
             </div>
             <div class="col-10">
                 {% ratings software %}
