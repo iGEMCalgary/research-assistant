@@ -19,11 +19,9 @@ def results(request):
 
 def details(request, id):
     software = Software.objects.get(id=id)
-    links = software.link_set.all()
 
     context = {
         'software': software,
-        'links': links
     }
 
     return render(request, 'software/details.html', context)
@@ -70,12 +68,13 @@ def edit(request, id):
 def submit(request):
     title = request.POST["title"]
     description = request.POST["description"]
+    link = request.POST["link"]
     iGemTeamName = request.POST["iGemTeamName"]
     iGemYear = request.POST["iGemYear"]
     dateSubmitted = request.POST["dateSubmitted"]
     dateModified = request.POST["dateModified"]
 
-    software = Software(title=title, description=description, iGemTeamName=iGemTeamName,
+    software = Software(title=title, description=description, link=link, iGemTeamName=iGemTeamName,
                         iGemYear=iGemYear, dateSubmitted=dateSubmitted, dateModified=dateModified)
     software.save()
 

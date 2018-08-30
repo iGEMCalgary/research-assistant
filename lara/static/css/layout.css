@@ -48,7 +48,16 @@ body {
     padding-right: 6.25rem;
 }
 
+.no-underline-link {
+    text-decoration: none !important;
+}
+
 .details-title {
+    color: #f7b733;
+    font-size: 1.2em;
+}
+
+.edit-title {
     color: #f7b733;
     font-size: 1.2em;
 }
@@ -59,7 +68,6 @@ body {
     color: white;
     height: 100%;
     padding: 0;
-    text-align: center;
 }
 
 .preview {
@@ -73,6 +81,13 @@ body {
     font-size: 1.2em;
 }
 
+.preview-info {
+    margin-bottom: 0;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    padding-bottom: 1.2rem;
+}
+
 .details-link {
     color: #7ccfb8;
 }
@@ -82,19 +97,46 @@ body {
 }
 
 .line-input {
-    border: 0;
-    color: lightgrey;
-    outline: 0;
     background: transparent;
-    border-bottom: 1px solid lightgrey;
+    border: 0;
+    border-bottom: 1px solid white;
+    color: white;
+    outline: 0;
 }
 
-.line-input:focus {
+/* .line-input:focus {
     border: 0;
-    color: white;
     outline: 0;
     background: transparent;
     border-bottom: 1px solid white;
+} */
+
+input::-webkit-input-placeholder {
+    color: #939498;
+}
+input:focus::-webkit-input-placeholder {
+    color: white;
+}
+
+input:-moz-placeholder {
+    color: #939498;
+}
+input:focus:-moz-placeholder {
+    color: white;
+}
+
+input::-moz-placeholder {
+    color: #939498;
+}
+input:focus::-moz-placeholder {
+    color: white;
+}
+
+input:-ms-input-placeholder {
+    color: #939498;
+}
+input:focus:-ms-input-placeholder {
+    color: white;
 }
 
 .bottom-left {
@@ -134,13 +176,14 @@ body {
 #pagetitle {
     color: #7ccfb8;
     font-size: 2em;
-    padding-bottom: 3.125rem;
+    /* padding-bottom: 3.125rem; */
 }
 
 #pageinfo {
     font-size: 1.4em;
     padding-bottom: 3.125rem;
     padding-left: 3.125rem;
+    padding-top: 3.125rem;
 }
 
 #modifybox {

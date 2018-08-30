@@ -1,28 +1,40 @@
 {% extends 'software/layout.html' %}
 
 {% block content %}
-<h1 id="pagetitle">SOFTWARE</h1>
+<a class="no-underline-link" href="/software"><h1 id="pagetitle">SOFTWARE</h1></a>
 <h2 id="pageinfo">{{pageinfo}}</h2>
 <div class="custom-container">
     <div id="modifybox">
         <form method="post" action="submit_software/">
             {% csrf_token %}
             <div class="row">
-                <div class="col-2">
+                <!-- <div class="col-2">
                     <h3 class="details-title">Title</h3>
+                </div> -->
+                {% if not software.title %}
+                <div style="text-align: left" class="col-10">
+                    <input autocomplete="off" class="line-input" name="title" type="text" placeholder="Title">
                 </div>
+                {% else %}
                 <div style="text-align: left" class="col-10">
                     <input autocomplete="off" class="line-input" name="title" type="text" value="{{software.title}}">
+                </div>
+                {% endif %}
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <h3 class="edit-title">Description</h3>
                 </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-2">
+                <!-- <div class="col-2">
                     <h3 class="details-title">Description</h3>
-                </div>
-                <!-- <div style="text-align: left" class="col-10">
-                    <textarea name="description" style="resize: none" rows="4" cols="50">{{software.body}}</textarea>
                 </div> -->
+                <div class="col-1"></div>
                 <div class="col-10">
                     <textarea name="description">{{software.description}}</textarea>
                     <script>
@@ -31,44 +43,76 @@
                 </div>
             </div>
             <br>
+            <br>
             <div class="row">
-                <div class="col-2">
-                    <h3 class="details-title">Links</h3>
+                <!-- <div class="col-2">
+                    <h3 class="details-title">Link</h3>
+                </div> -->
+                {% if not software.link %}
+                <div class="col-10">
+                    <input autocomplete="off" class="line-input" name="link" type="text" placeholder="Link">
                 </div>
-                <div style="text-align: left" class="col-10">
-                    <input autocomplete="off" class="line-input" name="link" type="text" value="">
+                {% else %}
+                <div class="col-10">
+                    <input autocomplete="off" class="line-input" name="link" type="text" value="{{software.link}}">
                 </div>
+                {% endif %}
             </div>
             <br>
             <div class="row">
-                <div class="col-2">
+                <!-- <div class="col-2">
                     <h3 class="details-title">iGEM Team</h3>
+                </div> -->
+                {% if not software.iGemTeamName %}
+                <div style="text-align: left" class="col-6">
+                    <input autocomplete="off" class="line-input" name="iGemTeamName" type="text" placeholder="iGEM Team Name">
                 </div>
-                <div style="text-align: left" class="col-4">
+                {% else %}
+                <div style="text-align: left" class="col-6">
                     <input autocomplete="off" class="line-input" name="iGemTeamName" type="text" value="{{software.iGemTeamName}}">
                 </div>
-                <div class="col-2">
+                {% endif %}
+                <!-- <div class="col-2">
                     <h3 class="details-title">iGEM Year</h3>
+                </div> -->
+                {% if not software.iGemYear %}
+                <div style="text-align: left" class="col-6">
+                    <input autocomplete="off" class="line-input" name="iGemYear" type="text" placeholder="iGEM Year">
                 </div>
-                <div style="text-align: left" class="col-4">
+                {% else %}
+                <div style="text-align: left" class="col-6">
                     <input autocomplete="off" class="line-input" name="iGemYear" type="text" value="{{software.iGemYear}}">
                 </div>
+                {% endif %}
             </div>
             <br>
             <div class="row">
-                <div class="col-2">
+                <!-- <div class="col-2">
                     <h3 class="details-title">Date Submitted</h3>
+                </div> -->
+                {% if not software.dateSubmitted %}
+                <div style="text-align: left" class="col-6">
+                    <input autocomplete="off" class="line-input" name="dateSubmitted" type="text" placeholder="Date Submitted">
                 </div>
-                <div style="text-align: left" class="col-4">
+                {% else %}
+                <div style="text-align: left" class="col-6">
                     <input autocomplete="off" class="line-input" name="dateSubmitted" type="text" value="{{software.dateSubmitted}}">
                 </div>
-                <div class="col-2">
+                {% endif %}
+                <!-- <div class="col-2">
                     <h3 class="details-title">Date Modified</h3>
+                </div> -->
+                {% if not software.dateSubmitted %}
+                <div style="text-align: left" class="col-6">
+                    <input autocomplete="off" class="line-input" name="dateModified" type="text" placeholder="Date Modified">
                 </div>
-                <div style="text-align: left" class="col-4">
+                {% else %}
+                <div style="text-align: left" class="col-6">
                     <input autocomplete="off" class="line-input" name="dateModified" type="text" value="{{software.dateModified}}">
                 </div>
+                {% endif %}
             </div>
+            <br>
             <br>
             <button type="submit" class="btn btn-outline-light">Submit</button>
         </form>

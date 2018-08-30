@@ -8,8 +8,9 @@ import datetime
 class Software(models.Model):
     title = models.CharField(max_length=200)
     description = RichTextField()
-    iGemTeamName = models.CharField(max_length=200)
-    iGemYear = models.IntegerField(default=datetime.date.today().year)
+    link = models.CharField(max_length=200)
+    iGemTeamName = models.CharField(max_length=200, blank=True)
+    iGemYear = models.CharField(max_length=4, blank=True)
     dateSubmitted = models.DateField(default=datetime.date.today)
     dateModified = models.DateField(default=datetime.date.today)
 
@@ -20,10 +21,10 @@ class Software(models.Model):
         verbose_name_plural = "Software"
 
 
-class Link(models.Model):
-    title = models.CharField(max_length=200)
-    url = models.URLField(max_length=200)
-    software = models.ForeignKey(Software, on_delete=models.CASCADE)
+# class Link(models.Model):
+#     title = models.CharField(max_length=200)
+#     url = models.URLField(max_length=200)
+#     software = models.ForeignKey(Software, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.title
+#     def __str__(self):
+#         return self.title
