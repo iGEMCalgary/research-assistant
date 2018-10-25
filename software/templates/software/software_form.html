@@ -1,0 +1,136 @@
+{% extends 'software/layout.html' %}
+
+{% block content %}
+
+<a class="no-underline-link" href="/software"><h1 id="pagetitle">SOFTWARE</h1></a>
+<h2 id="pageinfo">{{software.title}}</h2>
+<div class="custom-container">
+    <div id="modifybox">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="row">
+                {% if not software.title %}
+                <div style="text-align: left" class="col-10">
+                    <input autocomplete="off" class="line-input" name="{{ form.title.name }}" type="text" placeholder="Title">
+                    <br>
+                    <br>
+                    {{ form.title.errors }}
+                </div>
+                {% else %}
+                <div style="text-align: left" class="col-10">
+                    <input autocomplete="off" class="line-input" name="{{ form.title.name }}" type="text" value="{{software.title}}">
+                    <br>
+                    <br>
+                    {{ form.title.errors }}
+                </div>
+                {% endif %}
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <h3 class="edit-title">Description</h3>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <textarea name="description">{{software.description}}</textarea>
+                    <script>
+                        CKEDITOR.replace('description');
+                    </script>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                {% if not software.link %}
+                <div class="col-10">
+                    <input autocomplete="off" class="line-input" name="link" type="text" placeholder="Link">
+                    <br>
+                    <br>
+                    {{ form.link.errors }}
+                </div>
+                {% else %}
+                <div class="col-10">
+                    <input autocomplete="off" class="line-input" name="{{ form.link.name }}" type="text" value="{{software.link}}">
+                    <br>
+                    <br>
+                    {{ form.link.errors }}
+                </div>
+                {% endif %}
+            </div>
+            <br>
+            <div class="row">
+                {% if not software.iGemTeamName %}
+                <div style="text-align: left" class="col-6">
+                    <input autocomplete="off" class="line-input" name="{{ form.iGemTeamName.name }}" type="text" placeholder="iGEM Team Name">
+                    <br>
+                    <br>
+                    {{ form.iGemTeamName.errors }}
+                </div>
+                {% else %}
+                <div style="text-align: left" class="col-6">
+                    <input autocomplete="off" class="line-input" name="{{ form.iGemTeamName.name }}" type="text" value="{{software.iGemTeamName}}">
+                    <br>
+                    <br>
+                    {{ form.iGemTeamName.errors }}
+                </div>
+                {% endif %}
+                {% if not software.iGemYear %}
+                <div style="text-align: left" class="col-6">
+                    <input autocomplete="off" class="line-input" name="{{ form.iGemYear.name }}" type="text" placeholder="iGEM Year">
+                    <br>
+                    <br>
+                    {{ form.iGemYear.errors }}
+                </div>
+                {% else %}
+                <div style="text-align: left" class="col-6">
+                    <input autocomplete="off" class="line-input" name="{{ form.iGemYear.name }}" type="text" value="{{software.iGemYear}}">
+                    <br>
+                    <br>
+                    {{ form.iGemYear.errors }}
+                </div>
+                {% endif %}
+            </div>
+            <br>
+            <div class="row">
+                {% if not software.dateSubmitted %}
+                <div style="text-align: left" class="col-6">
+                    <input autocomplete="off" class="line-input" name="{{ form.dateSubmitted.name }}" type="text" placeholder="Date Submitted">
+                    <br>
+                    <br>
+                    {{ form.dateSubmitted.errors }}
+                </div>
+                {% else %}
+                <div style="text-align: left" class="col-6">
+                    <input autocomplete="off" class="line-input" name="{{ form.dateSubmitted.name }}" type="text" value="{{software.dateSubmitted}}">
+                    <br>
+                    <br>
+                    {{ form.dateSubmitted.errors }}
+                </div>
+                {% endif %}
+                {% if not software.dateModified %}
+                <div style="text-align: left" class="col-6">
+                    <input autocomplete="off" class="line-input" name="{{ form.dateModified.name }}" type="text" placeholder="Date Modified">
+                    <br>
+                    <br>
+                    {{ form.dateModified.errors }}
+                </div>
+                {% else %}
+                <div style="text-align: left" class="col-6">
+                    <input autocomplete="off" class="line-input" name="{{ form.dateModified.name }}" type="text" value="{{software.dateModified}}">
+                    <br>
+                    <br>
+                    {{ form.dateModified.errors }}
+                </div>
+                {% endif %}
+            </div>
+            <br>
+            <button type="submit" class="btn btn-outline-light">Submit</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

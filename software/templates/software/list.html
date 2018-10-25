@@ -1,0 +1,80 @@
+{% extends 'software/layout.html' %}
+
+{% block content %}
+
+<a class="no-underline-link" href="/software"><h1 id="pagetitle">SOFTWARE</h1></a>
+<h2 id="pageinfo">Results ({{software_list.count}})</h2>
+<div class="custom-container">
+    {% if request.user.is_superuser %}
+    <form action="#" method="get">
+        <div class="row">
+            <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="Enter Year" name="mytextbox"/>
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="btn btn-outline-light" value="Scrape" name="mybtn">
+            </div>
+        </div>
+    </form>
+    <!-- <a style="display: block" href="/software/scrape" class="btn btn-outline-light">Scrape Web</a> -->
+    <br>
+    {% endif %}
+    <a style="display: block" href="/software/add" class="btn btn-outline-light">Add Software</a>
+    <br>
+    <form method='GET' action=''>
+        <div class="row">
+            <div class="col-md-2">
+                <input class="form-control" type='text' name='q' placeholder='Search Software'>
+            </div>
+            <div class="col-md-2">
+                <input class="btn btn-outline-light" type='submit' value='Search'>
+            </div>
+    </form>
+    <br>
+    <div class="col-md-2 offset-md-10" style="padding-left: 0; padding-right: 0">
+        <form method='get' action=''>
+            <!-- <input type='text' name='q' placeholder='Search Software'> -->
+            <!-- <p>Order By: <input type='text' value={{orderby}} name='orderby'/></p> -->
+            <select id="order-by" class='form-control' onchange="this.form.submit()" name='orderby'>
+                <option style='color: white' value='' disabled selected hidden>Sort By</option>
+                <option value='title'>Title</option>
+                <option value='iGemTeamName'>iGEM Team</option>
+                <option value='iGemYear'>iGEM Year</option>
+                <option value='dateModified'>Date Modified</option>
+            </select>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    {% for software in software_list %}
+        {% if forloop.first %}
+        <div class="row">
+        {% endif %}
+        <div class="col-md-4">
+            <a style="text-decoration: none" href="/software/details/{{software.id}}">
+                <div class="col-12 square">
+                    <p class="preview"><span class="preview-title">{{software.title}}</span></p>
+                    <!-- <div class="preview-info">{{software.description|truncatewords:20|slice:":-4"|safe}} . . .</div> -->
+                    <div class="preview-info">{{software.description|truncatewords:20|safe}}</div>
+                    <div class="preview-info">{{software.dateSubmitted}}</div>
+                    {% if user.is_authenticated %}
+                    <form action="{% url 'software:delete' software.id %}" method="post" style="padding: 1.2rem">
+                        {% csrf_token %}
+                        <input type="hidden" name="software_id" value="{{ software.id }}"/>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </a>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}
+        </div><br><div class="row">
+        {% endif %}
+        {% if forloop.last %}
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

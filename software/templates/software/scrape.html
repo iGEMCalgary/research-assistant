@@ -1,0 +1,22 @@
+{% extends 'software/layout.html' %}
+
+{% block content %}
+
+<a class="no-underline-link" href="/software"><h1 id="pagetitle">SOFTWARE</h1></a>
+<h2 id="pageinfo">Scrape</h2>
+<div class="custom-container">
+    <div id="modifybox">
+        <form action="" method="get">
+            {% csrf_token %}
+            <div class="row">
+                <div style="text-align: left" class="col-10">
+                    <input autocomplete="off" class="line-input" name="scrapeYear" type="text" placeholder="Year">
+                </div>
+            </div>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-outline-light">Scrape</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

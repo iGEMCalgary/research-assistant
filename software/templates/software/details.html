@@ -1,0 +1,81 @@
+{% extends 'software/layout.html' %}
+
+{% block content %}
+
+<a class="no-underline-link" href="/software"><h1 id="pagetitle">SOFTWARE</h1></a>
+<h2 id="pageinfo">{{software.title}}</h2>
+<div class="custom-container">
+    <div id="modifybox">
+        <div class="row">
+            <div class="col-2">
+                <h3 class="details-title">Title</h3>
+            </div>
+            <div class="col-10">
+                <p>{{software.title}}</p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2">
+                <h3 class="details-title">Description</h3>
+            </div>
+            <div class="col-10">
+                {{software.description|safe}}
+            </div>
+        </div>
+        <br>
+        {% if not software.iGemTeamName %}
+        <div class="row">
+            <div class="col-2">
+                <h3 class="details-title">Link</h3>
+            </div>
+            <div class="col-10">
+                <a class="details-link" target="_blank" href="{{software.link}}">Software Page</a>
+            </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col-2">
+                <h3 class="details-title">iGEM Team</h3>
+            </div>
+            <div class="col-4">
+                <p>{{software.iGemTeamName}}</p>
+            </div>
+            <div class="col-2">
+                <h3 class="details-title">iGEM Year</h3>
+            </div>
+            <div class="col-4">
+                <p>{{software.iGemYear}}</p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2">
+                <h3 class="details-title">Link</h3>
+            </div>
+            <div class="col-10">
+                <a class="details-link" target="_blank" href="{{software.link}}">{{software.iGemTeamName}} {{software.iGemYear}} Page</a>
+            </div>
+        </div>
+        {% endif %}
+        <br>
+        <div class="row">
+            <div class="col-2">
+                <h3 class="details-title">Date Submitted</h3>
+            </div>
+            <div class="col-4">
+                <p>{{software.dateSubmitted}}</p>
+            </div>
+            <div class="col-2">
+                <h3 class="details-title">Date Modified</h3>
+            </div>
+            <div class="col-4">
+                <p>{{software.dateModified}}</p>
+            </div>
+        </div>
+        <br>
+        <a href="/software/details/{{software.id}}/update" class="btn btn-outline-light">Edit</a>
+    </div>
+</div>
+
+{% endblock %}
